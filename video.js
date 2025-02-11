@@ -120,3 +120,12 @@ document.querySelector('.subscribe-btn').addEventListener('click', function() {
     this.classList.toggle('subscribed');
     this.textContent = this.classList.contains('subscribed') ? 'Subscribed' : 'Subscribe';
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const youtubeLogo = document.getElementById('Youtube-logo');
+    
+    youtubeLogo.addEventListener('click', function() {
+        window.location.reload();
+    });
+    youtubeLogo.style.cursor = 'pointer';
+});

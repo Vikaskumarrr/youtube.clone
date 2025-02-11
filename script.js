@@ -55,14 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const youtubeLogo = document.getElementById('Youtube-logo');
     
     youtubeLogo.addEventListener('click', function() {
-        // Refresh the page
         window.location.reload();
-        
-        // Alternatively, you can redirect to home page
-        // window.location.href = '/';
     });
-
-    // Add cursor pointer style to show it's clickable
     youtubeLogo.style.cursor = 'pointer';
 });
 
@@ -93,6 +87,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+document.querySelector('.side-bar').addEventListener('click', () => {
+    window.location.reload();
+});
 
 
 
