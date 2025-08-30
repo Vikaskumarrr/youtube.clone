@@ -1,0 +1,402 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 56px;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  z-index: 2000;
+  transition: background-color 0.3s ease;
+  overflow: hidden; /* Prevent horizontal scrolling */
+  box-sizing: border-box;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+.menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.logo:hover {
+  background-color: var(--hover-bg);
+}
+
+.logo-img {
+  height: 20px;
+  width: auto;
+}
+
+.header-center {
+  flex: 1;
+  max-width: 728px;
+  margin: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 640px;
+  gap: 8px;
+  min-width: 0; /* Allow flex item to shrink below content size */
+}
+
+.search-container {
+  display: flex;
+  flex: 1;
+  height: 40px;
+  border: 1px solid var(--input-border);
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: var(--input-bg);
+  transition: border-color 0.2s ease;
+  min-width: 0; /* Allow flex item to shrink below content size */
+}
+
+.search-container:focus-within {
+  border-color: var(--input-border-focus);
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 0 16px;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 16px;
+  font-family: inherit;
+}
+
+.search-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 40px;
+  border: none;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  cursor: pointer;
+  border-left: 1px solid var(--input-border);
+  transition: background-color 0.2s ease;
+}
+
+.search-btn:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.mic-btn {
+  width: 40px;
+  height: 40px;
+  background-color: var(--bg-secondary);
+  border-radius: 50%;
+}
+
+.mic-btn:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+.search-mobile-btn {
+  display: none;
+}
+
+.theme-btn {
+  width: 40px;
+  height: 40px;
+}
+
+.profile-btn {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .header {
+    padding: 0 12px;
+  }
+  
+  .header-left {
+    gap: 12px;
+  }
+  
+  .logo-img {
+    height: 18px;
+  }
+  
+  .header-center {
+    margin: 0 16px;
+    max-width: 300px;
+  }
+  
+  .search-container {
+    height: 36px;
+  }
+  
+  .search-input {
+    font-size: 14px;
+  }
+  
+  .search-btn {
+    width: 48px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    padding: 0 10px;
+  }
+  
+  .header-left {
+    gap: 10px;
+  }
+  
+  .header-center {
+    margin: 0 14px;
+    max-width: 260px;
+  }
+  
+  .search-container {
+    height: 34px;
+  }
+  
+  .search-input {
+    font-size: 13px;
+  }
+  
+  .search-btn {
+    width: 46px;
+    height: 34px;
+  }
+}
+
+@media (max-width: 656px) {
+  .header {
+    padding: 0 8px;
+  }
+  
+  .header-left {
+    gap: 8px;
+  }
+  
+  .header-center {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0 16px;
+    background-color: var(--bg-primary);
+    height: 56px;
+    z-index: 1;
+  }
+  
+  .header-center.mobile-search-active {
+    display: flex;
+  }
+  
+  .search-mobile-btn {
+    display: flex;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .header-right .theme-btn,
+  .header-right .btn:not(.search-mobile-btn):not(.profile-btn) {
+    display: none;
+  }
+}
+
+
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0 6px;
+  }
+  
+  .header-left {
+    gap: 6px;
+  }
+  
+  .logo-img {
+    height: 16px;
+  }
+  
+  .header-right {
+    gap: 4px;
+  }
+  
+  .btn {
+    width: 36px;
+    height: 36px;
+  }
+  
+  /* Mobile touch improvements */
+  .header {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  .btn {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    min-height: 44px; /* Minimum touch target size */
+  }
+  
+  .search-container {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Make search more compact on very small screens */
+  .header-center {
+    margin: 0 10px;
+    max-width: 240px;
+  }
+  
+  .search-container {
+    height: 32px;
+  }
+  
+  .search-input {
+    font-size: 12px;
+    padding: 0 8px;
+  }
+  
+  .search-btn {
+    width: 42px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 360px) {
+  .header {
+    padding: 0 4px;
+  }
+  
+  .header-left {
+    gap: 4px;
+  }
+  
+  .logo-img {
+    height: 14px;
+  }
+  
+  .header-right {
+    gap: 2px;
+  }
+  
+  .btn {
+    width: 32px;
+    height: 32px;
+  }
+  
+  /* Ultra-compact search for very small screens */
+  .header-center {
+    margin: 0 8px;
+    max-width: 200px;
+  }
+  
+  .search-container {
+    height: 30px;
+  }
+  
+  .search-input {
+    font-size: 11px;
+    padding: 0 6px;
+  }
+  
+  .search-btn {
+    width: 38px;
+    height: 30px;
+  }
+}
+
+/* Button hover effects */
+.btn.btn-icon {
+  transition: all 0.2s ease;
+}
+
+.btn.btn-icon:hover {
+  background-color: var(--hover-bg);
+}
+
+.btn.btn-icon:active {
+  background-color: var(--active-bg);
+}
+
+/* Focus styles for accessibility */
+.btn:focus-visible {
+  outline: 2px solid var(--input-border-focus);
+  outline-offset: 2px;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+/* Animation for mobile search */
+.header-center.mobile-search-active {
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
