@@ -1,0 +1,153 @@
+/* Base menu item styles */
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  border-radius: 8px;
+  margin: 2px 0;
+}
+
+.menu-item:hover {
+  background-color: var(--hover-bg);
+}
+
+.menu-item.active {
+  background-color: var(--active-bg);
+  font-weight: 500;
+}
+
+.menu-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: var(--youtube-red);
+  border-radius: 0 2px 2px 0;
+}
+
+.menu-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--text-primary);
+  transition: color 0.2s ease;
+}
+
+.menu-item-label {
+  font-size: 14px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.2s ease;
+}
+
+/* Compact menu item styles (for collapsed sidebar) */
+.menu-item.compact {
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 12px;
+  text-align: center;
+}
+
+.menu-item.compact .menu-item-icon {
+  margin-bottom: 4px;
+}
+
+.menu-item.compact .menu-item-label {
+  font-size: 10px;
+  line-height: 1.2;
+  max-width: 56px;
+}
+
+/* Hover effects */
+.menu-item:hover .menu-item-icon {
+  color: var(--youtube-red);
+}
+
+.menu-item:hover .menu-item-label {
+  color: var(--text-muted);
+}
+
+/* Active state effects */
+.menu-item.active .menu-item-icon {
+  color: var(--youtube-red);
+}
+
+.menu-item.active .menu-item-label {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* Focus styles for accessibility */
+.menu-item:focus-visible {
+  outline: 2px solid var(--input-border-focus);
+  outline-offset: -2px;
+}
+
+/* Animation for menu item selection */
+.menu-item {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-item.active {
+  animation: activeSlide 0.2s ease-out;
+}
+
+@keyframes activeSlide {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: var(--active-bg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .menu-item {
+    padding: 8px 16px;
+    gap: 16px;
+  }
+  
+  .menu-item.compact {
+    padding: 12px 8px;
+  }
+  
+  .menu-item-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .menu-item-label {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-item {
+    padding: 6px 12px;
+    gap: 12px;
+  }
+  
+  .menu-item.compact {
+    padding: 10px 6px;
+  }
+  
+  .menu-item-icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .menu-item-label {
+    font-size: 12px;
+  }
+}
